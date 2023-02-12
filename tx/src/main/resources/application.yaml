@@ -1,0 +1,28 @@
+server:
+    port: 8080
+    tomcat:
+        max-http-form-post-size: 16777216
+
+spring:
+    application:
+        name: tx
+    datasource:
+        url: jdbc:mysql://${HOST:localhost}:${PORT:3306}/${DATABASE:tx}?serverTimezone=Asia/Shanghai
+        username: ${USERNAME:root}
+        password: ${PASSWORD:root}
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        hibernate:
+            dialect: org.hibernate.dialect.MySQLDialect
+            ddl-auto: create
+            show-sql: true
+            format-sql: true
+            type: info
+            use-sql-comments: true
+
+api:
+    prefix: /tx
+logging:
+    level:
+        org.springframework: INFO
+        design.boilerplate.springboot: INFO
